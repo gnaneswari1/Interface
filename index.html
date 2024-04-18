@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .alert {
+            font-weight: bold;
+        }
+
+        .spam {
+            color: red;
+        }
+
+        .not-spam {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHISHISNG URL Detection</h1>
+        <form method="POST">
+            <input type="text" name="url_input" placeholder="Enter the URL">
+            <input type="submit" value="Predict" class="btn btn-primary">
+        </form>
+        <div class="result">
+            <div class="alert {% if result == 'This URL is classified as spam.' %} alert-danger spam {% else %} alert-success not-spam {% endif %}" role="alert">
+                {{ result }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
